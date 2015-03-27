@@ -1,6 +1,7 @@
 //Todos los .styl del proyecto se importan aquí, para compilar un solo CSS
 //--Normalize.styl se busca ya hecho en google, y se importa aquí.
 @import "normalize.styl"
+@import "iconFonts.styl"
 
 //Variables
 gris_oscuro = #333333
@@ -9,6 +10,10 @@ gris_claro = #818181
 //Para eliminar el color azul y subrayado por defecto de todos los <a>
 a
 	text-decoration none
+
+//Esto se debe hacer siempre porque los img tienen por defecto un vertical align 'baseline'
+img
+	vertical-align top
 
 body
 	//Le digo todos los textos que tengan por defecto 16px, valor estándar por legibilidad.
@@ -29,6 +34,7 @@ figure
 	top 50%
 	margin-top -10px
 	left .5em
+	color gris_oscuro
 
 //OOCSS CLASSES (Clases que puedo reutilizar en varias partes y darselas por medio del html junto al nombre de clase)
 .relative
@@ -36,7 +42,82 @@ figure
 
 .border-bottom
 	border-bottom 1px solid gris_claro
+	
+.center-block
+	margin 0 auto
+
+.center-text
+	text-align center	
+
+.actions
+	position absolute
+	//Esto es para que los iconos de acciones se vayan a la parte de abajo del cover de la canción
+	//no se usa top 0 porque cubriría todo el cover de la canción.
+	bottom 0
+	//Este left y right 0, son para que los estilos se mantengan al borde del cover y no se salga ningun margin.
+	left 0
+	right 0
+	background rgba(gris_oscuro, .3)
+	//width 100%
+	//box-sizing border-box 
+
+.action
+	color white
+	//Margen para separar un poco los iconos de acciones
+	margin-right .5em
+	font-size 1.2em 
+	//el tercer icono no necesita ese espacio porque no tiene otro ícono a su derecha, le quito el margin al 'último hijo'
+	&:last-child
+		margin 0
+	&.gray
+		color gris_oscuro
+
+.right-text
+	text-align right 
+
+.padding
+	padding 1em
+
+.padding-only-sides
+	padding 1em 0
+	
+.progress
+	margin 1em 0
+	position relative
+	.total
+		height 5px
+		background gris_claro
+		width 75%
+		border-radius 5px
+		margin 0 auto
+	.state
+		height 5px
+		background gris_oscuro
+		width 30%
+		border-radius 5px
+		position relative
+	.indicadorAvance
+		width 10px
+		height 10px
+		background gris_oscuro
+		border-radius 50%
+		position absolute
+		right 0
+		top -2px
+		
+	.min
+	.max
+		position absolute
+		font-size .8em
+		top -5px
+	.max
+		right 0
+	.min		
+		left 0
+	
 //--FIN DE OOCSS CLASSES
+
+
 
 .container
 	//'padding' es un margen interno, esto se pone para nuestro contenedor general tenga un margen y las canciones no queden pegadas del borde.
@@ -93,3 +174,8 @@ figure
 	//0,5em (8px) hacia arriba y abajo del nombre de artista y título de la canción, y 0 a los lados.
 	p 
 		margin .5em 0
+		
+.playing
+	&.small
+		//320px = 20em
+		width 20em

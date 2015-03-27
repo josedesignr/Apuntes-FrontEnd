@@ -14,7 +14,7 @@
 	<body>
 		<!--En este header voy a tener el menú de opciones-->
 		<header class="header relative border-bottom">
-				<a class="button-menu">*</a>
+				<a class="button-menu icon-menu_icon"></a>
 				<nav class="menu">
 					<ul class="list">
 						<li class="item">
@@ -43,6 +43,52 @@
 					<p>Top Hits</p>
 				</div>	
 		</header>
+
+		<!--En esta Section va la pantalla de "Now Playing"-->
+		<section class="playing small center-block">
+			<!--Cover Canción-->
+			<figure class="image relative">
+				<img src="img/songs/girl-cover-640.jpg" width="320" height="320" alt="Come Get It Bae Pharrell Williams">
+				<!--Acciones Agregar-Favorito-Compartir-->
+				<div class="actions padding right-text">
+					<a href="" class="action icon-add_icon"></a>
+					<a href="" class="action icon-favorite_icon"></a>
+					<a href="" class="action icon-share_icon"></a>
+				</div>
+			</figure>
+
+			<!--Barra de avance de la reproducción-->
+			<div class="padding">
+				<div class="progress">
+					<span class="min">1:05</span>
+						<div class="total">
+							<div class="state">
+								<div class="indicadorAvance"></div>
+							</div>	
+						</div>
+					<span class="max">3:34</span>
+				</div>
+
+				<!--Información de la canción-->	
+				<div class="description center-text border-bottom">
+					<p class="name">
+						Come Get It Bae
+					</p>
+					<p class="author">
+						Pharrell Williams
+					</p>	
+				</div>
+
+				<!--Acciones de reproducción-->
+				<div class="play center-text padding-only-sides">
+					<a href="" class="action gray icon-rewind_icon"></a>
+					<a href="" class="action gray icon-play_icon"></a>
+					<a href="" class="action gray icon-forward_icon"></a>
+					<a href="" class="action gray icon-shuffle_icon"></a>
+					<a href="" class="action gray icon-volume_icon"></a>
+				</div>
+			</div>
+		</section>
 
 		<!--En este container voy a tener todo-->
 		<section class="container">
