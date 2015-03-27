@@ -1,0 +1,95 @@
+//Todos los .styl del proyecto se importan aquí, para compilar un solo CSS
+//--Normalize.styl se busca ya hecho en google, y se importa aquí.
+@import "normalize.styl"
+
+//Variables
+gris_oscuro = #333333
+gris_claro = #818181
+
+//Para eliminar el color azul y subrayado por defecto de todos los <a>
+a
+	text-decoration none
+
+body
+	//Le digo todos los textos que tengan por defecto 16px, valor estándar por legibilidad.
+	//Ahora cada que use valores en em, 1em valdrá 16px.
+	font-size 16px
+	//Esto lo copié de Google Fonts.
+	font-family 'Varela Round', sans-serif
+
+figure
+	//Los <figure> traen un margin por defecto que nos descuadra el layout, lo dejamos en 0.
+	margin 0
+
+//Buttons
+.button-menu
+	//'position absolute' hace que quede flotando con respecto al padre más cercano que tenga posición relativa. (el header)
+	position absolute
+	//este 50% es la mitad del alto de nuestro header.
+	top 50%
+	margin-top -10px
+	left .5em
+
+//OOCSS CLASSES (Clases que puedo reutilizar en varias partes y darselas por medio del html junto al nombre de clase)
+.relative
+	position relative
+
+.border-bottom
+	border-bottom 1px solid gris_claro
+//--FIN DE OOCSS CLASSES
+
+.container
+	//'padding' es un margen interno, esto se pone para nuestro contenedor general tenga un margen y las canciones no queden pegadas del borde.
+	//usamos 'rem' para que haga referencia al primer padre, los 16px del body; si dejamos em, quedaría en 0, por el font-size que tenemos aquí mismo.
+	padding 1.4rem
+	//este 'font-size' lo usamos para que todos nuestros inline-block no tengan espaciado. (se hace con font-size porque inline-block tiene propiedades de texto)
+	font-size 0
+	//Dado que usamos inline-block, podemos aprovechar las propiedades de texto para centrar con un text-align.
+	text-align center 
+
+.name
+	//color creado arriba como variable.
+	color gris_oscuro
+	
+.menu
+	//Oculta el menu.
+	display none
+	
+.author
+	//color creado arriba como variable.
+	color gris_claro
+
+.header
+	//Altura del header.
+	height 3.5em
+		
+.title
+	//tamaño del titulo un poco más grande. 
+	font-size 1.1em
+	//título centrado.
+	text-align center
+	//título sin margenes.
+	margin 0
+	//Misma altura de interlineado que la altura del header, para que quede centrado verticalmente.
+	line-height 3.5em
+
+.song
+	//Los elementos por defecto vienen en display:block, que le hace ocupar todo el ancho de la pantalla.
+	//Podríamos usar 'float' para que las canciones se acomoden, pero es mejor 'inline-bock' que hace que el bloque solo tenga el ancho que nosotros le asignemos, y aparte nos da propiedades de texto (lo podemos centrar, etc). 	
+	display inline-block
+	//como en mi clase container dije que font-size=0, y em hace referencia al padre más cercano, entonces todo lo que yo escriba aquí (nombre artista, título canciones, tendrá tamaño de fuente=0), para remediar esto usamos 'rem', que hace referencia al primer padre de todos, es decir, el que está en el body con 16px.
+	font-size 1rem
+	//8em es = a 16 * 8px = 128px
+	width 8em
+	//margen de 16px a la derecha y hacia abajo para que las canciones no estén pegadas.
+	margin-right 1em
+	margin-bottom 1em
+	//En la clase general 'container' tenemos un text-align: center, y eso nos está centrando también los títulos de las canciones, aquí ponemos de nuevo los títulos a la izquierda.
+	text-align left 
+	//Esto es una pseudoclase y lo que hace 'even' dentro de nth-child() es buscar solo los pares y hacer con ellos lo que este abajo de la pseudoclase, es decir, quitarle el margin right, porque solo lo necesitamos en los impares.
+	&:nth-child(even)
+	margin-right 0
+	
+	//0,5em (8px) hacia arriba y abajo del nombre de artista y título de la canción, y 0 a los lados.
+	p 
+		margin .5em 0
