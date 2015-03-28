@@ -6,6 +6,7 @@
 //Variables
 gris_oscuro = #333333
 gris_claro = #818181
+gris_lighter =  #F0F0F0
 
 //Para eliminar el color azul y subrayado por defecto de todos los <a>
 a
@@ -14,6 +15,10 @@ a
 //Esto se debe hacer siempre porque los img tienen por defecto un vertical align 'baseline'
 img
 	vertical-align top
+
+ul
+	margin 0
+	padding 0
 
 body
 	//Le digo todos los textos que tengan por defecto 16px, valor estándar por legibilidad.
@@ -45,9 +50,12 @@ figure
 	
 .center-block
 	margin 0 auto
+	
+.wrap
+	width 1000px
 
 .center-text
-	text-align center	
+	text-align center   
 
 .actions
 	position absolute
@@ -73,7 +81,16 @@ figure
 		color gris_oscuro
 
 .right-text
-	text-align right 
+	text-align right
+
+.left
+	float left
+.right
+	float right
+	
+.round 
+	border-radius 50%
+	overflow hidden
 
 .padding
 	padding 1em
@@ -100,7 +117,6 @@ figure
 		width 10px
 		height 10px
 		background gris_oscuro
-		border-radius 50%
 		position absolute
 		right 0
 		top -2px
@@ -112,7 +128,7 @@ figure
 		top -5px
 	.max
 		right 0
-	.min		
+	.min        
 		left 0
 	
 //--FIN DE OOCSS CLASSES
@@ -156,7 +172,7 @@ figure
 
 .song
 	//Los elementos por defecto vienen en display:block, que le hace ocupar todo el ancho de la pantalla.
-	//Podríamos usar 'float' para que las canciones se acomoden, pero es mejor 'inline-bock' que hace que el bloque solo tenga el ancho que nosotros le asignemos, y aparte nos da propiedades de texto (lo podemos centrar, etc). 	
+	//Podríamos usar 'float' para que las canciones se acomoden, pero es mejor 'inline-bock' que hace que el bloque solo tenga el ancho que nosotros le asignemos, y aparte nos da propiedades de texto (lo podemos centrar, etc).  
 	display inline-block
 	//como en mi clase container dije que font-size=0, y em hace referencia al padre más cercano, entonces todo lo que yo escriba aquí (nombre artista, título canciones, tendrá tamaño de fuente=0), para remediar esto usamos 'rem', que hace referencia al primer padre de todos, es decir, el que está en el body con 16px.
 	font-size 1rem
@@ -179,3 +195,108 @@ figure
 	&.small
 		//320px = 20em
 		width 20em
+
+.input
+	border 1px solid gris_claro
+	height 2em
+	border-radius 10px
+	margin-right .5em
+	padding 0 1em 0 2em
+
+.search-icon
+	position absolute
+	left .6em
+	top .5em
+	color gris_claro
+
+.close-icon
+	position absolute
+	top .2em
+	right .8em
+	font-size 1.2em 
+	color gris_claro
+
+.logo
+	display none
+
+//Este es un mediaquery, todo lo que tenga por lo menos 480px o más, tendrá los estilos a continuación
+@media screen and (min-width:480px)
+
+	.logo
+		display none
+		
+	//Esto le devuelve el margen que le habíamos quitado a los pares de la versión movil.
+	.song
+		&:nth-child(even)
+			margin-right 1em
+	
+	.image
+		img
+			width 100%
+			height auto 
+	.playing
+		&.medium
+			width auto 
+			
+@media screen and (min-width:1000px)
+	body
+		background gris_lighter
+		
+	.button-menu
+		display none
+		
+	.menu
+		display block
+		background gris_lighter
+		overflow hidden
+		
+		.item
+			float left
+			list-style none
+			font-size 1em
+			color white
+			a
+				color gris_oscuro
+				cursor pointer
+				display block
+				padding 1em
+				text-transform uppercase
+				border-top 5px solid transparent
+				&:hover
+					border-top 5px solid gris_oscuro
+	.header
+		height auto
+	
+	.title
+		display none
+	
+	.tamano-logo
+		width 122px
+		
+	.logo
+		display block
+		//Esto se pone cuando se usan floats, para no afectar la estructura de cajas.
+		overflow hidden
+		padding 1.3em 0
+		background gris_oscuro
+		
+	.avatar
+		display inline-block
+		img
+			width 2.3em
+			height 2.3em
+			border-radius 50%
+			margin-right .5em
+			
+	.username
+		display inline-block
+		color gris_claro
+		line-height 2.3em
+		//triangulito al lado del username.
+		&:after
+			content ""
+			border-left 7px solid transparent
+			border-top 9px solid gris_claro
+			border-right 7px solid transparent  
+			display inline-block
+			margin-left .5em
