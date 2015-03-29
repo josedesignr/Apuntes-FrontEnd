@@ -1,12 +1,25 @@
 //Todos los .styl del proyecto se importan aquí, para compilar un solo CSS
 //--Normalize.styl se busca ya hecho en google, y se importa aquí.
+@import "nib"
 @import "normalize.styl"
 @import "iconFonts.styl"
+
+//Actualmente no se necesita poner este vendor-prefixes porque esos que puse ahí son los que ya nib digita por default, pero en caso de que salga un nuevo motor de browser, simplemente debo añadirlo a este grupo.
+vendor-prefixes =  webkit o ms moz official 
+
+//animacion(parametro)
+	//-webkit-animation parametro
+	//-moz-animation parametro
+	//-o-animation parametro
+	//-ms-animation parametro
+	//animation parametro
+	
 
 //Variables
 gris_oscuro = #333333
 gris_claro = #818181
 gris_lighter =  #F0F0F0
+fucsia = #CC2F6F
 
 //Para eliminar el color azul y subrayado por defecto de todos los <a>
 a
@@ -98,6 +111,9 @@ figure
 .padding-only-sides
 	padding 1em 0
 	
+.padding-only-tb
+	padding 0 1em
+	
 .progress
 	margin 1em 0
 	position relative
@@ -109,10 +125,15 @@ figure
 		margin 0 auto
 	.state
 		height 5px
-		background gris_oscuro
+		background fucsia
 		width 30%
 		border-radius 5px
 		position relative
+		//Los llamados a los navegadores están arriba
+		//animacion(1s playing-state infinite)
+		//Duracion de la canción
+		animation 250s playing-state infinite linear
+		
 	.indicadorAvance
 		width 10px
 		height 10px
@@ -120,6 +141,8 @@ figure
 		position absolute
 		right 0
 		top -2px
+		//animacion(1s circle-progress infinite)
+		animation 1s circle-progress infinite
 		
 	.min
 	.max
@@ -130,11 +153,29 @@ figure
 		right 0
 	.min        
 		left 0
+
+@keyframes playing-state
+	//from
+	0%
+		//background red
+		width 0
+	//to
+	100%
+		width 100%
+
+@keyframes circle-progress
+	0%
+		//escala-rotación-sesgado
+		transform scale(1)
+	100%
+		transform scale(2)
+		opacity 0
 	
 //--FIN DE OOCSS CLASSES
-
-
-
+.header
+	//Altura del header.
+	height 3.5em
+	
 .container
 	//'padding' es un margen interno, esto se pone para nuestro contenedor general tenga un margen y las canciones no queden pegadas del borde.
 	//usamos 'rem' para que haga referencia al primer padre, los 16px del body; si dejamos em, quedaría en 0, por el font-size que tenemos aquí mismo.
@@ -155,10 +196,11 @@ figure
 .author
 	//color creado arriba como variable.
 	color gris_claro
-
-.header
-	//Altura del header.
-	height 3.5em
+	
+//.image
+	//img
+		//width 100%
+		//height auto
 		
 .title
 	//tamaño del titulo un poco más grande. 
@@ -169,6 +211,7 @@ figure
 	margin 0
 	//Misma altura de interlineado que la altura del header, para que quede centrado verticalmente.
 	line-height 3.5em
+	
 
 .song
 	//Los elementos por defecto vienen en display:block, que le hace ocupar todo el ancho de la pantalla.
@@ -193,8 +236,8 @@ figure
 		
 .playing
 	&.small
-		//320px = 20em
 		width 20em
+		margin 0 auto
 
 .input
 	border 1px solid gris_claro
@@ -216,15 +259,48 @@ figure
 	font-size 1.2em 
 	color gris_claro
 
+.tamano-logo
+		width 122px
+		
 .logo
 	display none
+	//Esto se pone cuando se usan floats, para no afectar la estructura de cajas.
+	overflow hidden
+	padding 1.3em 0
+	background gris_oscuro
+		
+.avatar
+	display inline-block
+	img
+		width 2.3em
+		height 2.3em
+		border-radius 50%
+		margin-right .5em
+			
+.username
+	display inline-block
+	color gris_claro
+	line-height 2.3em
+	//triangulito al lado del username.
+	&:after
+		content ""
+		border-left 7px solid transparent
+		border-top 9px solid gris_claro
+		border-right 7px solid transparent  
+		display inline-block
+		margin-left .5em
+	
+.playlist
+	display none
+	width 24em
+	border-left 1px solid gris_claro
+	.list
+		list-style none
+	.action
+		font-size .8em
 
 //Este es un mediaquery, todo lo que tenga por lo menos 480px o más, tendrá los estilos a continuación
-@media screen and (min-width:480px)
-
-	.logo
-		display none
-		
+@media screen and (min-width:480px)		
 	//Esto le devuelve el margen que le habíamos quitado a los pares de la versión movil.
 	.song
 		&:nth-child(even)
@@ -242,13 +318,23 @@ figure
 	body
 		background gris_lighter
 		
+	.logo
+		display block
+	
 	.button-menu
 		display none
-		
+	
+	.playing
+		padding-top 1em
+		&.large
+			margin 0 auto
+			width 62.5em
+			overflow hidden
 	.menu
 		display block
 		background gris_lighter
 		overflow hidden
+		//border-top 1px solid gris_claro
 		
 		.item
 			float left
@@ -263,40 +349,23 @@ figure
 				text-transform uppercase
 				border-top 5px solid transparent
 				&:hover
-					border-top 5px solid gris_oscuro
+					border-top 5px solid fucsia
+					
+	//En el modo tablet tenía el ancho total, en desktop no.			
+	.music
+		width 32.5em
+		float left
+		overflow hidden
+	
+	.playlist
+		display block
+			
+	.description
+		display none
+				
 	.header
 		height auto
+		border none
 	
 	.title
 		display none
-	
-	.tamano-logo
-		width 122px
-		
-	.logo
-		display block
-		//Esto se pone cuando se usan floats, para no afectar la estructura de cajas.
-		overflow hidden
-		padding 1.3em 0
-		background gris_oscuro
-		
-	.avatar
-		display inline-block
-		img
-			width 2.3em
-			height 2.3em
-			border-radius 50%
-			margin-right .5em
-			
-	.username
-		display inline-block
-		color gris_claro
-		line-height 2.3em
-		//triangulito al lado del username.
-		&:after
-			content ""
-			border-left 7px solid transparent
-			border-top 9px solid gris_claro
-			border-right 7px solid transparent  
-			display inline-block
-			margin-left .5em

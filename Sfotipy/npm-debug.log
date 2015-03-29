@@ -1,0 +1,136 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'nib' ]
+2 info using npm@2.5.1
+3 info using node@v0.12.1
+4 silly cache add args [ 'nib', null ]
+5 verbose cache add spec nib
+6 silly cache add parsed spec { raw: 'nib',
+6 silly cache add   scope: null,
+6 silly cache add   name: 'nib',
+6 silly cache add   rawSpec: '',
+6 silly cache add   spec: '*',
+6 silly cache add   type: 'range' }
+7 verbose addNamed nib@*
+8 silly addNamed semver.valid null
+9 silly addNamed semver.validRange *
+10 silly addNameRange { name: 'nib', range: '*', hasData: false }
+11 silly mapToRegistry name nib
+12 silly mapToRegistry using default registry
+13 silly mapToRegistry registry https://registry.npmjs.org/
+14 silly mapToRegistry uri https://registry.npmjs.org/nib
+15 verbose addNameRange registry:https://registry.npmjs.org/nib not in flight; fetching
+16 verbose request uri https://registry.npmjs.org/nib
+17 verbose request no auth needed
+18 info attempt registry request try #1 at 13:41:04
+19 verbose request id bc7394af3d2c4d33
+20 verbose etag "5A1Z279CQ01KGK8T45UI6DUTR"
+21 http request GET https://registry.npmjs.org/nib
+22 http 304 https://registry.npmjs.org/nib
+23 silly get cb [ 304,
+23 silly get   { date: 'Sun, 29 Mar 2015 11:41:05 GMT',
+23 silly get     server: 'Apache',
+23 silly get     via: '1.1 varnish',
+23 silly get     'last-modified': 'Sun, 29 Mar 2015 11:41:05 GMT',
+23 silly get     'cache-control': 'max-age=60',
+23 silly get     etag: '"5A1Z279CQ01KGK8T45UI6DUTR"',
+23 silly get     age: '0',
+23 silly get     'x-served-by': 'cache-jfk1028-JFK',
+23 silly get     'x-cache': 'MISS',
+23 silly get     'x-cache-hits': '0',
+23 silly get     'x-timer': 'S1427629265.399184,VS0,VE355',
+23 silly get     vary: 'Accept',
+23 silly get     'content-length': '0',
+23 silly get     'keep-alive': 'timeout=10, max=50',
+23 silly get     connection: 'Keep-Alive' } ]
+24 verbose etag https://registry.npmjs.org/nib from cache
+25 verbose get saving nib to /Users/Jose/.npm/registry.npmjs.org/nib/.cache.json
+26 silly addNameRange number 2 { name: 'nib', range: '*', hasData: true }
+27 silly addNameRange versions [ 'nib',
+27 silly addNameRange   [ '0.0.1',
+27 silly addNameRange     '0.0.2',
+27 silly addNameRange     '0.0.3',
+27 silly addNameRange     '0.0.4',
+27 silly addNameRange     '0.0.5',
+27 silly addNameRange     '0.0.6',
+27 silly addNameRange     '0.0.7',
+27 silly addNameRange     '0.0.8',
+27 silly addNameRange     '0.1.0',
+27 silly addNameRange     '0.2.0',
+27 silly addNameRange     '0.3.0',
+27 silly addNameRange     '0.3.1',
+27 silly addNameRange     '0.3.2',
+27 silly addNameRange     '0.4.0',
+27 silly addNameRange     '0.4.1',
+27 silly addNameRange     '0.5.0',
+27 silly addNameRange     '0.6.0',
+27 silly addNameRange     '0.7.0',
+27 silly addNameRange     '0.7.1',
+27 silly addNameRange     '0.8.1',
+27 silly addNameRange     '0.8.2',
+27 silly addNameRange     '0.9.0',
+27 silly addNameRange     '0.9.1',
+27 silly addNameRange     '0.9.2',
+27 silly addNameRange     '1.0.0',
+27 silly addNameRange     '1.0.1',
+27 silly addNameRange     '1.0.2',
+27 silly addNameRange     '1.0.3',
+27 silly addNameRange     '1.0.4',
+27 silly addNameRange     '1.1.0' ] ]
+28 verbose addNamed nib@1.1.0
+29 silly addNamed semver.valid 1.1.0
+30 silly addNamed semver.validRange 1.1.0
+31 silly cache afterAdd nib@1.1.0
+32 verbose afterAdd /Users/Jose/.npm/nib/1.1.0/package/package.json not in flight; writing
+33 verbose afterAdd /Users/Jose/.npm/nib/1.1.0/package/package.json written
+34 silly install resolved [ { name: 'nib',
+34 silly install resolved     description: 'Stylus mixins and utilities',
+34 silly install resolved     version: '1.1.0',
+34 silly install resolved     license: 'MIT',
+34 silly install resolved     repository: { type: 'git', url: 'git://github.com/visionmedia/nib.git' },
+34 silly install resolved     dependencies: { stylus: '0.49.x' },
+34 silly install resolved     devDependencies: { connect: '1.x', jade: '0.22.0', mocha: '*', should: '*' },
+34 silly install resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+34 silly install resolved     main: 'lib/nib.js',
+34 silly install resolved     engines: { node: '*' },
+34 silly install resolved     scripts: { test: 'mocha', 'test-server': 'node test/server.js' },
+34 silly install resolved     gitHead: '061612cf80110e53ef5a3749980e0bf4cdc124fa',
+34 silly install resolved     bugs: { url: 'https://github.com/visionmedia/nib/issues' },
+34 silly install resolved     homepage: 'https://github.com/visionmedia/nib',
+34 silly install resolved     _id: 'nib@1.1.0',
+34 silly install resolved     _shasum: '527c19662a10a2b565fe85e9b309d622aa7557d3',
+34 silly install resolved     _from: 'nib@*',
+34 silly install resolved     _npmVersion: '1.4.28',
+34 silly install resolved     _npmUser: { name: 'slang800', email: 'slang800@gmail.com' },
+34 silly install resolved     maintainers: [ [Object], [Object] ],
+34 silly install resolved     dist:
+34 silly install resolved      { shasum: '527c19662a10a2b565fe85e9b309d622aa7557d3',
+34 silly install resolved        tarball: 'http://registry.npmjs.org/nib/-/nib-1.1.0.tgz' },
+34 silly install resolved     directories: {},
+34 silly install resolved     _resolved: 'https://registry.npmjs.org/nib/-/nib-1.1.0.tgz',
+34 silly install resolved     readme: 'ERROR: No README data found!' } ]
+35 info install nib@1.1.0 into /Users/Jose/Apuntes-FrontEnd/Sfotipy
+36 info installOne nib@1.1.0
+37 verbose installOne of nib to /Users/Jose/Apuntes-FrontEnd/Sfotipy not in flight; installing
+38 warn locking Error: EACCES, open '/Users/Jose/.npm/_locks/nib-058dd98e21327d9b.lock'
+38 warn locking     at Error (native)
+38 warn locking  /Users/Jose/.npm/_locks/nib-058dd98e21327d9b.lock failed { [Error: EACCES, open '/Users/Jose/.npm/_locks/nib-058dd98e21327d9b.lock']
+38 warn locking   errno: -13,
+38 warn locking   code: 'EACCES',
+38 warn locking   path: '/Users/Jose/.npm/_locks/nib-058dd98e21327d9b.lock' }
+39 verbose stack Error: Attempt to unlock /Users/Jose/Apuntes-FrontEnd/Sfotipy/node_modules/nib, which hasn't been locked
+39 verbose stack     at unlock (/usr/local/lib/node_modules/npm/lib/utils/locker.js:66:11)
+39 verbose stack     at cb (/usr/local/lib/node_modules/npm/lib/install.js:929:5)
+39 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:933:20
+39 verbose stack     at /usr/local/lib/node_modules/npm/lib/utils/locker.js:40:9
+39 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/lockfile/lockfile.js:149:38)
+39 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/lockfile/lockfile.js:177:38
+39 verbose stack     at FSReqWrap.oncomplete (fs.js:99:15)
+40 verbose cwd /Users/Jose/Apuntes-FrontEnd/Sfotipy
+41 error Darwin 13.4.0
+42 error argv "node" "/usr/local/bin/npm" "install" "nib"
+43 error node v0.12.1
+44 error npm  v2.5.1
+45 error Attempt to unlock /Users/Jose/Apuntes-FrontEnd/Sfotipy/node_modules/nib, which hasn't been locked
+46 error If you need help, you may report this error at:
+46 error     <http://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]
